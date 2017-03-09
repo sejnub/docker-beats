@@ -46,6 +46,7 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cp ~/temp/docker-beats-sources/beats/filebeat/filebeat.yml           ~/temp/docker-beats/beat-bin-and-config/
     cp ~/temp/docker-beats-sources/beats/filebeat/filebeat.full.yml      ~/temp/docker-beats/beat-bin-and-config/
     
+    # build
     cd ~/temp/docker-beats; docker build -t sejnub/beats:rpi-latest .
 
     eof
