@@ -22,7 +22,7 @@ or
 Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/` and then (with updated url's) do
 
     # prepare
-    cd ~; mkdir temp; mkdir docker-beats-sources;
+    cd ~; mkdir temp; mkdir temp/docker-beats-sources;
     
     # load sources
     cd ~/temp/docker-beats-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
