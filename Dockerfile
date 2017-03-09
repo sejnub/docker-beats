@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:latest
+FROM resin/rpi-raspbian:jessie-20160831  
 
 MAINTAINER sejnub
 
