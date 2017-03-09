@@ -32,9 +32,20 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1236-7d8a21178383c283aabf8e4e6d8a1c28b55b2cd1/filebeat-linux-arm
     
 
+    # clone rep and copy sources into it
     cd ~/temp; rm -rf docker-beats; git clone https://github.com/sejnub/docker-beats.git
 
+    cp ~/temp/docker-beats-sources/metricbeat-linux-arm ~/temp/docker-beats/beat-bin-and-config/metricbeat
+    cp ~/temp/docker-beats-sources/heartbeat-linux-arm  ~/temp/docker-beats/beat-bin-and-config/heartbeat
+    cp ~/temp/docker-beats-sources/filebeat-linux-arm   ~/temp/docker-beats/beat-bin-and-config/filebeat
 
+    cp ~/temp/docker-beats-sources/beats/metricbeat/metricbeat.yml       ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/temp/docker-beats-sources/beats/metricbeat/metricbeat.full.yml  ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/temp/docker-beats-sources/beats/heartbeat/heartbeat.yml         ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/temp/docker-beats-sources/beats/heartbeat/heartbeat.full.yml    ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/temp/docker-beats-sources/beats/filebeat/filebeat.yml           ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/temp/docker-beats-sources/beats/filebeat/filebeat.full.yml      ~/temp/docker-beats/beat-bin-and-config/
+    
     cd ~/temp/docker-beats; docker build -t sejnub/beats:rpi-latest .
 
     eof
