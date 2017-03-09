@@ -22,6 +22,7 @@ or
 Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/` and then (with updated url's) do
     
     # clean up
+    cd ~
     rm -rf ~/temp/docker-beats
     rm -rf ~/temp/docker-beats-sources
     
