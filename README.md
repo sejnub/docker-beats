@@ -1,0 +1,42 @@
+# docker-beats
+
+### Run portainer
+
+    sudo docker start portainer
+
+or
+
+    sudo docker rm -f portainer; sudo docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --name portainer portainer/portainer
+
+
+
+### Build image 
+Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/` and then (with updated url's) do
+
+    cd ~;              rm -rf docker-beats; git clone https://github.com/sejnub/docker-beats.git
+    cd ~/docker-beats; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/809-7d8a21178383c283aabf8e4e6d8a1c28b55b2cd1/metricbeat-linux-arm 
+    cd ~/docker-beats; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/99-50dc1c71367c871ff065390e2ab6fab2f4956c57/heartbeat-linux-arm
+    cd ~/docker-beats; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1236-7d8a21178383c283aabf8e4e6d8a1c28b55b2cd1/filebeat-linux-arm
+    cd ~/docker-beats; docker build -t sejnub/beats:rpi-latest .
+
+    eof
+
+### Run filebeat
+
+    sudo docker run -v /media/sf_shared-with-virtualbox/filebeat.hb1.yml:/filebeat.yml prima/filebeat:5
+    eof
+
+
+
+### In browser
+
+    http://localhost:5601
+    http://localhost:9000
+    eof
+ 
+ 
+ 
+ 
+ 
+ 
+eof
