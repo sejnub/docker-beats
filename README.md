@@ -6,7 +6,7 @@ Work in progress: This repository is worthless for anybody but me just now.
 ### TODO
 
 * Remove installation of commodity software from Dockerfile
-* 
+* Create mechanism to run the image with a specified configuration
 
 ### Run portainer
 
