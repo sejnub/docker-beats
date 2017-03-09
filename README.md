@@ -1,6 +1,9 @@
-# docker-beats
+# docker-beats (WIP)
 
-### Run portainer
+## Status 
+Work in progress: This repository is worthless for anybody but me just now.
+
+## Run portainer
 
     sudo docker start portainer
 
@@ -10,7 +13,7 @@ or
 
 
 
-### Build image 
+## Build image 
 Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/` and then (with updated url's) do
 
     cd ~;              rm -rf docker-beats; git clone https://github.com/sejnub/docker-beats.git
@@ -22,7 +25,7 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     eof
 
 
-### Run filebeat
+## Run filebeat
 
 Run an interactive bash
 
@@ -35,10 +38,8 @@ Run an interactive bash
 
 
 
-### In browser
+## In browser
 
-    http://localhost:5601
-    http://localhost:9000
     eof
  
  
