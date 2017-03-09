@@ -15,6 +15,13 @@ RUN apt-get -qy install apt-utils \
 
 RUN apt-get -qy install mc
 
+COPY beat-bins/filebeat-linux-arm /usr/local/bin/filebeat
+COPY beat-bins/heartbeat-linux-arm /usr/local/bin/heartbeat
+COPY beat-bins/metricbeat-linux-arm /usr/local/bin/metricbeat
+
+RUN chmod ug+x /usr/local/bin/filebeat && \
+    chmod ug+x /usr/local/bin/heartbeat && \
+    chmod ug+x /usr/local/bin/metricbeat 
 
 #### Install beats ####
 
