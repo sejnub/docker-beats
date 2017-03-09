@@ -25,7 +25,7 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cd ~; mkdir temp; mkdir docker-beats-sources;
     
     # load sources
-    cd ~/temp; rm -rf docker-beats-sources; git clone https://github.com/elastic/beats.git
+    cd ~/temp/docker-beats-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
 
     cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/809-7d8a21178383c283aabf8e4e6d8a1c28b55b2cd1/metricbeat-linux-arm 
     cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/99-50dc1c71367c871ff065390e2ab6fab2f4956c57/heartbeat-linux-arm
