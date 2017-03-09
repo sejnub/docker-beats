@@ -22,4 +22,4 @@ RUN apt-get -qy install mc
 #EXPOSE
 
 
-#CMD
+CMD /bin/bash
