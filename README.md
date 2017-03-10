@@ -64,7 +64,7 @@ Run an interactive bash
 
     docker rm -f beats; docker run -it --name beats sejnub/beats:rpi-latest bash
 
-    metricbeat -c /etc/metricbeat/metricbeat.hb.yml
+    metricbeat -path.config /etc/metricbeat 
     
     nano /etc/metricbeat/metricbeat.hb.yml
     
