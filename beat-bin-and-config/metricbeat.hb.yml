@@ -77,6 +77,27 @@ output.elasticsearch:
   #protocol: "https"
   #username: "elastic"
   #password: "changeme"
+  
+  
+  # A template is used to set the mapping in Elasticsearch
+  # By default template loading is enabled and the template is loaded.
+  # These settings can be adjusted to load your own template or overwrite existing ones.
+
+  # Set to false to disable template loading.
+  #template.enabled: true
+
+  # Template name. By default the template name is metricbeat.
+  # The version of the beat will always be appended to the given name
+  # so the final name is metricbeat-%{[beat.version]}.
+  #template.name: "metricbeat"
+
+  # Path to template file
+  template.path: "/etc/metricbeat/metricbeat.template.json"
+
+  # Overwrite existing template
+  #template.overwrite: false
+
+
 
 #----------------------------- Logstash output --------------------------------
 #output.logstash:
