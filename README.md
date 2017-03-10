@@ -43,9 +43,6 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cp ~/temp/docker-beats-sources/metricbeat-linux-arm     ~/temp/docker-beats/beat-bin-and-config/
     cp ~/temp/docker-beats-sources/heartbeat-linux-arm      ~/temp/docker-beats/beat-bin-and-config/
     cp ~/temp/docker-beats-sources/filebeat-linux-arm       ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/metricbeat.template.json ~/temp/docker-beats/beat-bin-and-config/
-
-    
 
 
     cp ~/temp/docker-beats-sources/beats/metricbeat/metricbeat.yml       ~/temp/docker-beats/beat-bin-and-config/
