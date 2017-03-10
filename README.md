@@ -58,7 +58,7 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     eof
 
 
-### Run filebeat
+### Run beats
 
 Run an interactive bash
 
