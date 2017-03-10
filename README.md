@@ -64,7 +64,11 @@ Run an interactive bash
 
     docker rm -f beats; docker run -it --name beats sejnub/beats:rpi-latest bash
 
-
+    metricbeat -c /etc/metricbeat/metricbeat.hb.yml
+    
+    nano /etc/metricbeat/metricbeat.hb.yml
+    
+    
 
     sudo docker run -v /media/sf_shared-with-virtualbox/filebeat.hb1.yml:/filebeat.yml prima/filebeat:5
     eof
