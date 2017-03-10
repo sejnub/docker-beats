@@ -28,6 +28,7 @@ COPY beat-bin-and-config/metricbeat.yml           /etc/metricbeat/
 COPY beat-bin-and-config/metricbeat.full.yml      /etc/metricbeat/
 
 COPY beat-bin-and-config/metricbeat.template.json /etc/metricbeat/
+COPY beat-bin-and-config/metricbeat.template-es2x.json /etc/metricbeat/
 
 
 
