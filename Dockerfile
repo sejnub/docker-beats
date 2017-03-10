@@ -11,7 +11,8 @@ RUN apt-get update
 
 RUN apt-get -qy install apt-utils \
                         apt-transport-https \
-                        wget
+                        wget \
+                        nano
 
 RUN apt-get -qy install mc
 
