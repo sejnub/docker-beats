@@ -32,9 +32,9 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     # load sources
     cd ~/temp/docker-beats-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
 
-    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/809-7d8a21178383c283aabf8e4e6d8a1c28b55b2cd1/metricbeat-linux-arm 
-    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/99-50dc1c71367c871ff065390e2ab6fab2f4956c57/heartbeat-linux-arm
-    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1236-7d8a21178383c283aabf8e4e6d8a1c28b55b2cd1/filebeat-linux-arm
+    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/946-1b2d67afd23f52274ec20c5c487a49074ffb7a69/metricbeat-linux-arm 
+    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/251-1b2d67afd23f52274ec20c5c487a49074ffb7a69/heartbeat-linux-arm
+    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1373-1b2d67afd23f52274ec20c5c487a49074ffb7a69/filebeat-linux-arm
     
 
     # clone rep and copy sources into it
