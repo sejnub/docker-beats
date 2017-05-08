@@ -9,6 +9,7 @@ Work in progress: This repository is worthless for anybody but me just now.
 
 * Remove installation of commodity software from Dockerfile
 * Create mechanism to run the image with a specified configuration
+* Switch to a smaller base image like e.g. alpine (look at hypriot)
 
 
 ### Run portainer
