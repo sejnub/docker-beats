@@ -57,9 +57,9 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
 
 ### copy executables into build folder 
-    cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/bin/
+    cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/bin/
+    cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/bin/
 
 
 ### copy config templates into build folder
