@@ -42,7 +42,7 @@ RUN chmod ug+x /usr/local/bin/filebeat  && \
 
 COPY bin/start.sh  /usr/local/bin
 RUN chmod ug+x     /usr/local/bin/start.sh
-
-ENTRYPOINT /usr/local/bin/start.sh
+ 
+ENTRYPOINT ["/usr/local/bin/start.sh"]
 
 CMD /bin/bash
