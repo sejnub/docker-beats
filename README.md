@@ -23,7 +23,7 @@ or
 # Build image 
 Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/` and then (with updated url's) do
     
-## load external sources into ~/docker-beats-1-sources
+## load foreign external sources into ~/docker-beats-1-sources
 
 ### clean up and prepare empty folder
     cd ~
@@ -40,7 +40,9 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1373-1b2d67afd23f52274ec20c5c487a49074ffb7a69/filebeat-linux-arm
     
 
-### clone my own sources (Dockerfile etc.)
+## load my own external sources into ~/docker-beats-1-sources
+
+### clone my own rep (Dockerfile etc.)
     cd ~/docker-beats-1-sources; 
     rm -rf ~/docker-beats-1-sources/docker-beats
     git clone https://github.com/sejnub/docker-beats.git
