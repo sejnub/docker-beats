@@ -83,7 +83,7 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     docker push sejnub/beats:rpi-latest
     
 
-# Run beats
+# Run beats (WIP, not working by now)
 
 Run an interactive bash
 
