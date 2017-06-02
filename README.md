@@ -32,7 +32,6 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     
 ### clone the git rep that contains config file templates
     cd ~/docker-beats-1-sources; 
-    rm -rf beats; 
     git clone https://github.com/elastic/beats.git
     
 ### wget the arm executables 
@@ -43,7 +42,6 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
 
 ### clone my own sources (Dockerfile etc.)
     cd ~/docker-beats-1-sources; 
-    rm -rf docker-beats; 
     git clone https://github.com/sejnub/docker-beats.git
         
 
