@@ -26,16 +26,18 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     
     # clean up
     cd ~
-    rm -rf ~/temp/docker-beats
-    rm -rf ~/temp/docker-beats-sources
+    rm -rf ~/docker-beats-1-sources
+    rm -rf ~/docker-beats-2-build
+    rm -rf ~/docker-beats-3-run
+    
     
     # prepare
-    cd ~; mkdir temp; mkdir temp/docker-beats-sources;
+    cd ~; mkdir temp; mkdir docker-beats-1-sources;
     
-    # load sources into ~/temp/docker-beats-sources
+    # load sources into ~/docker-beats-1-sources
     
     ## this is needed only for the config files
-    cd ~/temp/docker-beats-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
+    cd ~/docker-beats-1-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
     
     ## these are the executables
     cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/946-1b2d67afd23f52274ec20c5c487a49074ffb7a69/metricbeat-linux-arm 
