@@ -74,13 +74,18 @@ Run an interactive bash
 
     docker rm -f beats; docker run -it --name beats sejnub/beats:rpi-latest bash
 
+Then inside the container run
+
     metricbeat -path.config /etc/metricbeat 
     
     nano /etc/metricbeat/metricbeat.hb.yml
     
     
+Just for information. There is an X86 docker image which can be run with
 
     sudo docker run -v /media/sf_shared-with-virtualbox/filebeat.hb1.yml:/filebeat.yml prima/filebeat:5
+
+
     eof
 
 
