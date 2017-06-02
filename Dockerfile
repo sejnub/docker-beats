@@ -16,6 +16,9 @@ RUN apt-get -qy install apt-utils \
 
 RUN apt-get -qy install mc
 
+
+#### Install beats ####
+
 COPY bin/filebeat-linux-arm               /usr/local/bin/filebeat
 COPY config/filebeat.yml                  /etc/filebeat/
 COPY config/filebeat.full.yml             /etc/filebeat/
@@ -32,21 +35,11 @@ COPY config/metricbeat.template.json      /etc/metricbeat/
 COPY config/metricbeat.template-es2x.json /etc/metricbeat/
 
 
-
-#COPY my-config/filebeat.hb.yml           /etc/filebeat/
-#COPY my-config/heartbeat.hb.yml          /etc/heartbeat/
-#COPY my-config/metricbeat.hb.yml         /etc/metricbeat/
-
-
 RUN chmod ug+x /usr/local/bin/filebeat  && \
     chmod ug+x /usr/local/bin/heartbeat && \
     chmod ug+x /usr/local/bin/metricbeat 
 
 
-#### Install beats ####
-
-
-#EXPOSE
-
+ENTRYPOINT start.sh
 
 CMD /bin/bash
