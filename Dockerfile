@@ -40,6 +40,8 @@ RUN chmod ug+x /usr/local/bin/filebeat  && \
     chmod ug+x /usr/local/bin/metricbeat 
 
 
-ENTRYPOINT start.sh
+COPY bin/start.sh  /usr/local/bin
+
+ENTRYPOINT /usr/local/bin/start.sh
 
 CMD /bin/bash
