@@ -42,6 +42,7 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
 
 ### clone my own sources (Dockerfile etc.)
     cd ~/docker-beats-1-sources; 
+    rm -rf ~/docker-beats-1-sources/docker-beats
     git clone https://github.com/sejnub/docker-beats.git
         
 
@@ -63,12 +64,12 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
 
 
 ### copy config templates into build folder
-    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml       ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.full.yml  ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml         ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.full.yml    ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml           ~/docker-beats-2-build/beat-bin-and-config/
-    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.full.yml      ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml       ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.full.yml  ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml         ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.full.yml    ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml           ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.full.yml      ~/docker-beats-2-build/config/
     
 ## build
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
