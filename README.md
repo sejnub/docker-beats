@@ -1,19 +1,18 @@
 # docker-beats (WIP)
 
 
-### Status 
+# Status 
 Work in progress: This repository is worthless for anybody but me just now.
 
 
-### TODO
+# TODO
 
 * Remove installation of commodity software from Dockerfile
 * Create mechanism to run the image with a specified configuration
 * Switch to a smaller base image like e.g. alpine (look at hypriot)
 
 
-### Run portainer
-
+# Run portainer
     sudo docker start portainer
 
 or
@@ -21,41 +20,53 @@ or
     sudo docker rm -f portainer; sudo docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --name portainer portainer/portainer
 
 
-### Build image 
+# Build image 
 Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/` and then (with updated url's) do
     
-    # clean up
+## load external sources into ~/docker-beats-1-sources
+
+### clean up and prepare empty folder
     cd ~
     rm -rf ~/docker-beats-1-sources
-    rm -rf ~/docker-beats-2-build
+    mkdir  ~/docker-beats-1-sources;    
     
+### clone the git rep that contains config file templates
+    cd ~/docker-beats-1-sources; 
+    rm -rf beats; 
+    git clone https://github.com/elastic/beats.git
     
-    # prepare    
-    cd ~; 
-    rm -rf ~/docker-beats-1-sources;
-    mkdir  ~/docker-beats-1-sources;
-    
-    # load sources into ~/docker-beats-1-sources
-    
-    ## this is needed only for the config files
-    cd ~/docker-beats-1-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
-    
-    ## these are the executables
+### wget the arm executables 
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/946-1b2d67afd23f52274ec20c5c487a49074ffb7a69/metricbeat-linux-arm 
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/251-1b2d67afd23f52274ec20c5c487a49074ffb7a69/heartbeat-linux-arm
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1373-1b2d67afd23f52274ec20c5c487a49074ffb7a69/filebeat-linux-arm
     
 
-    # clone rep (sejnub/docker-beats) and copy sources (executables and configs) into ~/temp/docker-beats
-
-    cd ~/temp; rm -rf docker-beats; git clone https://github.com/sejnub/docker-beats.git
-    mv ~/temp/docker-beats ~/docker-beats-2-build
+### clone my own sources (Dockerfile etc.)
+    cd ~/docker-beats-1-sources; 
+    rm -rf docker-beats; 
+    git clone https://github.com/sejnub/docker-beats.git
         
 
+
+## set up the build folder ~/docker-beats-2-build    
+
+### clean up
+    cd ~; 
+    rm -rf ~/docker-beats-2-build; 
+    
+
+### clone rep (sejnub/docker-beats) and copy sources (executables and configs) into ~/temp/docker-beats
+
+### copy my own sorces into build folder
+    mv ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
+
+### copy executables into build folder 
     cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/beat-bin-and-config/
     cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/beat-bin-and-config/
     cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/beat-bin-and-config/
 
+
+### copy config templates into build folder
     cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml       ~/docker-beats-2-build/beat-bin-and-config/
     cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.full.yml  ~/docker-beats-2-build/beat-bin-and-config/
     cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml         ~/docker-beats-2-build/beat-bin-and-config/
@@ -63,17 +74,17 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml           ~/docker-beats-2-build/beat-bin-and-config/
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.full.yml      ~/docker-beats-2-build/beat-bin-and-config/
     
-    # build
+## build
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
 
 
-### Push the image 
+# Push the image 
 
     docker login
     docker push sejnub/beats:rpi-latest
     
 
-### Run beats
+# Run beats
 
 Run an interactive bash
 
@@ -95,7 +106,7 @@ Just for information. There is an X86 docker image which can be run with
 
 
 
-### In browser
+# In browser
 
     eof
  
