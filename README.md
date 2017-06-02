@@ -53,8 +53,6 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     rm -rf ~/docker-beats-2-build; 
     
 
-### clone rep (sejnub/docker-beats) and copy sources (executables and configs) into ~/temp/docker-beats
-
 ### copy my own sorces into build folder
     mv ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
 
