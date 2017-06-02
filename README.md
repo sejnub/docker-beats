@@ -28,11 +28,12 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cd ~
     rm -rf ~/docker-beats-1-sources
     rm -rf ~/docker-beats-2-build
-    rm -rf ~/docker-beats-3-run
     
     
-    # prepare
-    cd ~; mkdir temp; mkdir docker-beats-1-sources;
+    # prepare    
+    cd ~; 
+    rm -rf ~/docker-beats-1-sources;
+    mkdir  ~/docker-beats-1-sources;
     
     # load sources into ~/docker-beats-1-sources
     
@@ -40,28 +41,30 @@ Have a look for newer binaries at `https://beats-nightlies.s3.amazonaws.com/inde
     cd ~/docker-beats-1-sources; rm -rf beats; git clone https://github.com/elastic/beats.git
     
     ## these are the executables
-    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/946-1b2d67afd23f52274ec20c5c487a49074ffb7a69/metricbeat-linux-arm 
-    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/251-1b2d67afd23f52274ec20c5c487a49074ffb7a69/heartbeat-linux-arm
-    cd ~/temp/docker-beats-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1373-1b2d67afd23f52274ec20c5c487a49074ffb7a69/filebeat-linux-arm
+    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/946-1b2d67afd23f52274ec20c5c487a49074ffb7a69/metricbeat-linux-arm 
+    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/251-1b2d67afd23f52274ec20c5c487a49074ffb7a69/heartbeat-linux-arm
+    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1373-1b2d67afd23f52274ec20c5c487a49074ffb7a69/filebeat-linux-arm
     
 
     # clone rep (sejnub/docker-beats) and copy sources (executables and configs) into ~/temp/docker-beats
 
     cd ~/temp; rm -rf docker-beats; git clone https://github.com/sejnub/docker-beats.git
+    mv ~/temp/docker-beats ~/docker-beats-2-build
+        
 
-    cp ~/temp/docker-beats-sources/metricbeat-linux-arm     ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/heartbeat-linux-arm      ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/filebeat-linux-arm       ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/beat-bin-and-config/
 
-    cp ~/temp/docker-beats-sources/beats/metricbeat/metricbeat.yml       ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/beats/metricbeat/metricbeat.full.yml  ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/beats/heartbeat/heartbeat.yml         ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/beats/heartbeat/heartbeat.full.yml    ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/beats/filebeat/filebeat.yml           ~/temp/docker-beats/beat-bin-and-config/
-    cp ~/temp/docker-beats-sources/beats/filebeat/filebeat.full.yml      ~/temp/docker-beats/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml       ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.full.yml  ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml         ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.full.yml    ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml           ~/docker-beats-2-build/beat-bin-and-config/
+    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.full.yml      ~/docker-beats-2-build/beat-bin-and-config/
     
     # build
-    cd ~/temp/docker-beats; docker build -t sejnub/beats:rpi-latest .
+    cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
 
 
 ### Push the image 
