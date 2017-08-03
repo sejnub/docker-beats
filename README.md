@@ -42,7 +42,7 @@ Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1594-23d9fe69e8a4367fc31915553596129a2ca8267b/filebeat-linux-arm
     
 
-## load my own external sources into ~/docker-beats-1-sources
+## load my own external sources into ~/docker-beats-1-sources (repeat if I edited my source)
 
 ### clone my own rep (Dockerfile etc.)
     cd ~/docker-beats-1-sources; 
@@ -58,7 +58,7 @@ Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index
     rm -rf ~/docker-beats-2-build; 
     
 
-### copy my own sorces into build folder
+### copy my own sorces into build folder (repeat if I edited my source)
     cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
 
 ### copy executables into build folder 
@@ -75,11 +75,11 @@ Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml               ~/docker-beats-2-build/config/
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.reference.yml     ~/docker-beats-2-build/config/
     
-## build
+## build (repeat if I edited my source)
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
 
 
-# Push the image 
+# Push the image (repeat if I edited my source)
 
     docker login
     docker push sejnub/beats:rpi-latest
