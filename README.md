@@ -59,7 +59,7 @@ or
     mkdir ~/docker-beats-2-build
     
     ### copy my own sorces into build folder (this has to happen first because it creates the bin and the config folders)
-    cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
+    cp -r ~/docker-beats-1-sources/docker-beats/* ~/docker-beats-2-build
 
     ### copy executables into build folder     
     cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/bin/
