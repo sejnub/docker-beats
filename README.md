@@ -37,9 +37,9 @@ or
 ### wget the arm executables 
 Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/ and then (with updated url's) do
 
-    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/946-1b2d67afd23f52274ec20c5c487a49074ffb7a69/metricbeat-linux-arm 
-    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/251-1b2d67afd23f52274ec20c5c487a49074ffb7a69/heartbeat-linux-arm
-    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1373-1b2d67afd23f52274ec20c5c487a49074ffb7a69/filebeat-linux-arm
+    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/1167-23d9fe69e8a4367fc31915553596129a2ca8267b/metricbeat-linux-arm 
+    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/472-23d9fe69e8a4367fc31915553596129a2ca8267b/heartbeat-linux-arm
+    cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1594-23d9fe69e8a4367fc31915553596129a2ca8267b/filebeat-linux-arm
     
 
 ## load my own external sources into ~/docker-beats-1-sources
