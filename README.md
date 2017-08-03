@@ -49,7 +49,6 @@ or
     cd ~/docker-beats-1-sources; 
     rm -rf ~/docker-beats-1-sources/docker-beats
     git clone https://github.com/sejnub/docker-beats.git
-        
 
 
     ## set up the build folder ~/docker-beats-2-build    
@@ -59,13 +58,13 @@ or
     rm -rf ~/docker-beats-2-build 
     mkdir ~/docker-beats-2-build
     
+    ### copy my own sorces into build folder (this has to happen first because it creates the bin and the config folders)
+    cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
 
     ### copy executables into build folder     
-    mkdir ~/docker-beats-2-build/bin
     cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/bin/
     cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/bin/
     cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/bin/
-
 
     ### copy config templates into build folder
     cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml           ~/docker-beats-2-build/config/
@@ -75,9 +74,6 @@ or
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml               ~/docker-beats-2-build/config/
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.reference.yml     ~/docker-beats-2-build/config/
     
-    ### copy my own sorces into build folder
-    cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
-
 
     ## build
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
