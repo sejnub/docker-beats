@@ -68,12 +68,12 @@ Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index
 
 
 ### copy config templates into build folder
-    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml       ~/docker-beats-2-build/config/
-    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.full.yml  ~/docker-beats-2-build/config/
-    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml         ~/docker-beats-2-build/config/
-    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.full.yml    ~/docker-beats-2-build/config/
-    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml           ~/docker-beats-2-build/config/
-    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.full.yml      ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml           ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.reference.yml ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml             ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.reference.yml   ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml               ~/docker-beats-2-build/config/
+    cp ~/docker-beats-1-sources/beats/filebeat/filebeat.reference.yml     ~/docker-beats-2-build/config/
     
 ## build
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
