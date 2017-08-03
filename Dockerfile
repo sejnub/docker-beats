@@ -21,15 +21,15 @@ RUN apt-get -qy install mc
 
 COPY bin/filebeat-linux-arm               /usr/local/bin/filebeat
 COPY config/filebeat.yml                  /etc/filebeat/
-COPY config/filebeat.full.yml             /etc/filebeat/
+COPY config/filebeat.reference.yml        /etc/filebeat/
                                                        
 COPY bin/heartbeat-linux-arm              /usr/local/bin/heartbeat
 COPY config/heartbeat.yml                 /etc/heartbeat/
-COPY config/heartbeat.full.yml            /etc/heartbeat/
+COPY config/heartbeat.reference.yml       /etc/heartbeat/
                                                        
 COPY bin/metricbeat-linux-arm             /usr/local/bin/metricbeat
 COPY config/metricbeat.yml                /etc/metricbeat/
-COPY config/metricbeat.full.yml           /etc/metricbeat/
+COPY config/metricbeat.reference.yml      /etc/metricbeat/
                                                        
 COPY config/metricbeat.template.json      /etc/metricbeat/
 COPY config/metricbeat.template-es2x.json /etc/metricbeat/
