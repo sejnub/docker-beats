@@ -43,9 +43,9 @@ or
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1594-23d9fe69e8a4367fc31915553596129a2ca8267b/filebeat-linux-arm
     
 
-    ### load my own external sources into ~/docker-beats-1-sources
+    ### load my own external sources into ~/docker-beats-1-sources (repeat from here on if I edited my source)
 
-    #### clone my own rep (Dockerfile etc.) (repeat if I edited my source)
+    #### clone my own rep (Dockerfile etc.)
     cd ~/docker-beats-1-sources; 
     rm -rf ~/docker-beats-1-sources/docker-beats
     git clone https://github.com/sejnub/docker-beats.git
@@ -75,15 +75,15 @@ or
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml               ~/docker-beats-2-build/config/
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.reference.yml     ~/docker-beats-2-build/config/
     
-    ### copy my own sorces into build folder (repeat if I edited my source)
+    ### copy my own sorces into build folder
     cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
 
 
-    ## build (repeat if I edited my source)
+    ## build
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
 
 
-# Push the image (repeat if I edited my source)
+# Push the image
 
     docker login
     docker push sejnub/beats:rpi-latest
