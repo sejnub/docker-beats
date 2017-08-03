@@ -22,51 +22,51 @@ or
 
 # Build image 
 
-## set up the source folder ~/docker-beats-1-sources
+    ## set up the source folder ~/docker-beats-1-sources
 
-### prepare empty folder ~/docker-beats-1-sources
+    ### prepare empty folder ~/docker-beats-1-sources
     cd ~
     rm -rf ~/docker-beats-1-sources
     mkdir  ~/docker-beats-1-sources  
     
-### load foreign external sources into ~/docker-beats-1-sources
+    ### load foreign external sources into ~/docker-beats-1-sources
     
-#### clone the git rep that contains config file templates
+    #### clone the git rep that contains config file templates
     cd ~/docker-beats-1-sources; 
     git clone https://github.com/elastic/beats.git
     
-#### wget the arm executables 
-Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/ and then (with updated url's) do
+    #### wget the arm executables 
+    # Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index.html?prefix=jenkins/ and then (with updated url's) do
 
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/metricbeat/1167-23d9fe69e8a4367fc31915553596129a2ca8267b/metricbeat-linux-arm 
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/heartbeat/472-23d9fe69e8a4367fc31915553596129a2ca8267b/heartbeat-linux-arm
     cd ~/docker-beats-1-sources; wget https://beats-nightlies.s3.amazonaws.com/jenkins/filebeat/1594-23d9fe69e8a4367fc31915553596129a2ca8267b/filebeat-linux-arm
     
 
-### load my own external sources into ~/docker-beats-1-sources
+    ### load my own external sources into ~/docker-beats-1-sources
 
-#### clone my own rep (Dockerfile etc.) (repeat if I edited my source)
+    #### clone my own rep (Dockerfile etc.) (repeat if I edited my source)
     cd ~/docker-beats-1-sources; 
     rm -rf ~/docker-beats-1-sources/docker-beats
     git clone https://github.com/sejnub/docker-beats.git
         
 
 
-## set up the build folder ~/docker-beats-2-build    
+    ## set up the build folder ~/docker-beats-2-build    
 
-### prepare empty folder ~/docker-beats-2-build
+    ### prepare empty folder ~/docker-beats-2-build
     cd ~
     rm -rf ~/docker-beats-2-build 
     mkdir ~/docker-beats-2-build
     
 
-### copy executables into build folder 
+    ### copy executables into build folder 
     cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/bin/
     cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/bin/
     cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/bin/
 
 
-### copy config templates into build folder
+    ### copy config templates into build folder
     cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml           ~/docker-beats-2-build/config/
     cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.reference.yml ~/docker-beats-2-build/config/
     cp ~/docker-beats-1-sources/beats/heartbeat/heartbeat.yml             ~/docker-beats-2-build/config/
@@ -74,11 +74,11 @@ Have a look for newer binaries at https://beats-nightlies.s3.amazonaws.com/index
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.yml               ~/docker-beats-2-build/config/
     cp ~/docker-beats-1-sources/beats/filebeat/filebeat.reference.yml     ~/docker-beats-2-build/config/
     
-### copy my own sorces into build folder (repeat if I edited my source)
+    ### copy my own sorces into build folder (repeat if I edited my source)
     cp -r ~/docker-beats-1-sources/docker-beats ~/docker-beats-2-build
 
 
-## build (repeat if I edited my source)
+    ## build (repeat if I edited my source)
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
 
 
