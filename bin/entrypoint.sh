@@ -1,7 +1,7 @@
 #!/bin/sh
 
-chown root /etc/metricbeat/metricbeat.yml 
-chown root /etc/filebeat/filebeat.yml 
-chown root /etc/heartbeat/heartbeat.yml 
+chown root /usr/share/filebeat/filebeat.yml 
+chown root /usr/share/heartbeat/heartbeat.yml 
+chown root /usr/share/metricbeat/metricbeat.yml 
 
 bash
