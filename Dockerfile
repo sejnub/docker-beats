@@ -18,31 +18,38 @@ RUN apt-get -qy install mc
 
 
 #### Install beats ####
+# See https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html for dir layout
 
-COPY bin/filebeat-linux-arm               /usr/local/bin/filebeat
-COPY config/filebeat.yml                  /etc/filebeat/
-COPY config/filebeat.reference.yml        /etc/filebeat/
+
+RUN mkdir /usr/share/filebeat   \
+          /usr/share/heartbeat  \
+          /usr/share/metricbeat \
+          /usr/share/beats
+          
+COPY bin/filebeat-linux-arm               /usr/share/filebeat/filebeat
+COPY config/filebeat.yml                  /usr/share/filebeat
+COPY config/filebeat.reference.yml        /usr/share/filebeat
                                                        
-COPY bin/heartbeat-linux-arm              /usr/local/bin/heartbeat
-COPY config/heartbeat.yml                 /etc/heartbeat/
-COPY config/heartbeat.reference.yml       /etc/heartbeat/
+COPY bin/heartbeat-linux-arm              /usr/share/heartbeat/heartbeat
+COPY config/heartbeat.yml                 /usr/share/heartbeat
+COPY config/heartbeat.reference.yml       /usr/share/heartbeat
                                                        
-COPY bin/metricbeat-linux-arm             /usr/local/bin/metricbeat
-COPY config/metricbeat.yml                /etc/metricbeat/
-COPY config/metricbeat.reference.yml      /etc/metricbeat/
+COPY bin/metricbeat-linux-arm             /usr/share/metricbeat/metricbeat
+COPY config/metricbeat.yml                /usr/share/metricbeat
+COPY config/metricbeat.reference.yml      /usr/share/metricbeat
                                                        
-COPY config/metricbeat.template.json      /etc/metricbeat/
-COPY config/metricbeat.template-es2x.json /etc/metricbeat/
+COPY config/metricbeat.template.json      /usr/share/metricbeat
+COPY config/metricbeat.template-es2x.json /usr/share/metricbeat
 
 
-RUN chmod ug+x /usr/local/bin/filebeat  && \
-    chmod ug+x /usr/local/bin/heartbeat && \
-    chmod ug+x /usr/local/bin/metricbeat 
+RUN chmod ug+x /usr/share/filebeat/filebeat   && \
+    chmod ug+x /usr/share/heartbeat/heartbeat && \
+    chmod ug+x /usr/share/metricbeat/metricbeat 
 
 
-COPY bin/entrypoint.sh /usr/local/bin
-RUN chmod ug+x         /usr/local/bin/entrypoint.sh
+COPY bin/entrypoint.sh /usr/share/beats
+RUN chmod ug+x         usr/share/beats/entrypoint.sh
  
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["usr/share/beats/entrypoint.sh"]
 
 CMD /bin/bash
