@@ -11,6 +11,9 @@ Work in progress: This repository is worthless for anybody but me just now.
 * Create mechanism to run the image with a specified configuration
 * Switch to a smaller base image like e.g. alpine (look at hypriot)
 
+# Doc
+https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
+
 
 # Run portainer
     sudo docker start portainer
