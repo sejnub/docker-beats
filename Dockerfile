@@ -48,8 +48,8 @@ RUN chmod ug+x /usr/share/filebeat/filebeat   && \
 
 
 COPY bin/entrypoint.sh /usr/share/beats
-RUN chmod ug+x         usr/share/beats/entrypoint.sh
+RUN chmod ug+x         /usr/share/beats/entrypoint.sh
  
-ENTRYPOINT ["usr/share/beats/entrypoint.sh"]
+ENTRYPOINT ["/usr/share/beats/entrypoint.sh"]
 
 CMD /bin/bash
