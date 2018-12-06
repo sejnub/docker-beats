@@ -7,9 +7,12 @@ Work in progress: This repository is worthless for anybody but me just now.
 
 # TODO
 
-* Remove installation of commodity software from Dockerfile
-* Create mechanism to run the image with a specified configuration
-* Switch to a smaller base image like e.g. alpine (look at hypriot)
+* Way 1: Check the repository <https://github.com/andig/beats4pi> that seems to be a much better way!
+
+* Way 2: Do it my way as it is described in this rep before 2018-11. Then the following is to be done
+    * Remove installation of commodity software from Dockerfile
+    * Create mechanism to run the image with a specified configuration
+    * Switch to a smaller base image like e.g. alpine (look at hypriot)
 
 # Doc
 https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
