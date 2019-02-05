@@ -7,6 +7,7 @@ Based on <https://gist.github.com/alibo/016c54c7e6dfcb8d4c87dae080230ad0>
 ```bash
 
 cd ~
+rm -rf ~/docker-beats
 git clone https://github.com/sejnub/docker-beats.git
 cd docker-beats/bin
 
