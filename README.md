@@ -2,6 +2,11 @@
 
 Work in progress: This repository is worthless for anybody but me just now.
 
+## Links
+
+- Check the repository <https://github.com/andig/beats4pi>
+
+
 ## Build and save beats for arm
 
 - On an x86 machine follow <https://github.com/sejnub/docker-build-beats>
@@ -12,9 +17,7 @@ Work in progress: This repository is worthless for anybody but me just now.
 
 ### TODO
 
-* Way 1: Check the repository <https://github.com/andig/beats4pi> that seems to be a much better way!
-
-* Way 2: Do it my way as it is described in this rep before 2018-11. Then the following is to be done
+Do it my way as it is described in this rep before 2018-11. Then the following is to be done
     * Remove installation of commodity software from Dockerfile
     * Create mechanism to run the image with a specified configuration
     * Switch to a smaller base image like e.g. alpine (look at hypriot)
@@ -23,15 +26,8 @@ Work in progress: This repository is worthless for anybody but me just now.
 https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
 
 
-### Run portainer
-    sudo docker start portainer
-
-or
-
-    sudo docker rm -f portainer; sudo docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --name portainer portainer/portainer
-
-
 ### Build image 
+
 
     ## set up the source folder ~/docker-beats-1-sources
 
