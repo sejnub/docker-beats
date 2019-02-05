@@ -1,67 +1,16 @@
 # docker-beats (WIP)
 
-## Build beats for arm
-
-Based on <https://gist.github.com/alibo/016c54c7e6dfcb8d4c87dae080230ad0>
-
-```bash
-
-cd ~
-rm -rf ~/docker-beats
-git clone https://github.com/sejnub/docker-beats.git
-cd docker-beats/bin
-
-#----- Create a Docker for cross-compilation -----#
-#mkdir build && cd $_
-docker run -it --rm -v `pwd`:/build golang:1.10.8 /bin/bash
-
-
-#----- Inside container -----#
-go get github.com/elastic/beats
-
-cd /go/src/github.com/elastic/beats/filebeat/
-git checkout v6.6.0
-GOARCH=arm go build
-cp filebeat /build
-
-cd /go/src/github.com/elastic/beats/metricbeat/
-git checkout v6.6.0
-GOARCH=arm go build
-cp metricbeat /build
-
-cd /go/src/github.com/elastic/beats/heartbeat/
-git checkout v6.6.0
-GOARCH=arm go build
-cp heartbeat /build
-
-exit
-
-#----- Outside container / Verify the outputfile -----#
-file filebeat 
-#ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
-
-file metricbeat 
-#ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
-
-file heartbeat 
-#ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
-
-#----- Push executables -----#
-
-git add .
-git push
-
-```
-
-
-
-## REST
-
-# Status 
 Work in progress: This repository is worthless for anybody but me just now.
 
+## Build and save beats for arm
 
-# TODO
+- On an x86 machine follow <https://github.com/sejnub/docker-build-beats>
+- Copy the executable to the folder ~/beats4pi on the raspi
+
+
+## Build images
+
+### TODO
 
 * Way 1: Check the repository <https://github.com/andig/beats4pi> that seems to be a much better way!
 
@@ -70,11 +19,11 @@ Work in progress: This repository is worthless for anybody but me just now.
     * Create mechanism to run the image with a specified configuration
     * Switch to a smaller base image like e.g. alpine (look at hypriot)
 
-# Doc
+### Doc
 https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
 
 
-# Run portainer
+### Run portainer
     sudo docker start portainer
 
 or
@@ -82,7 +31,7 @@ or
     sudo docker rm -f portainer; sudo docker run -d -p 9000:9000 -v "/var/run/docker.sock:/var/run/docker.sock" --name portainer portainer/portainer
 
 
-# Build image 
+### Build image 
 
     ## set up the source folder ~/docker-beats-1-sources
 
@@ -141,13 +90,13 @@ or
     cd ~/docker-beats-2-build; docker build -t sejnub/beats:rpi-latest .
 
 
-# Push the image
+### Push the image
 
     docker login
     docker push sejnub/beats:rpi-latest
     
 
-# Run beats (WIP, not working by now)
+### Run beats (WIP, not working by now)
 
 Run an interactive bash
 
@@ -164,18 +113,3 @@ Just for information. There is an X86 docker image which can be run with
 
     sudo docker run -v /media/sf_shared-with-virtualbox/filebeat.hb1.yml:/filebeat.yml prima/filebeat:5
 
-
-    eof
-
-
-
-# In browser
-
-    eof
- 
- 
- 
- 
- 
- 
-eof
