@@ -1,5 +1,60 @@
 # docker-beats (WIP)
 
+## Build beats for arm
+
+Based on <https://gist.github.com/alibo/016c54c7e6dfcb8d4c87dae080230ad0>
+
+```bash
+
+cd ~
+git clone https://github.com/sejnub/docker-beats.git
+cd docker-beats/bin
+
+#----- Create a Docker for cross-compilation -----#
+#mkdir build && cd $_
+docker run -it --rm -v `pwd`:/build golang:1.10.8 /bin/bash
+
+
+#----- Inside container -----#
+go get github.com/elastic/beats
+
+cd /go/src/github.com/elastic/beats/filebeat/
+git checkout v6.6.0
+GOARCH=arm go build
+cp filebeat /build
+
+cd /go/src/github.com/elastic/beats/metricbeat/
+git checkout v6.6.0
+GOARCH=arm go build
+cp metricbeat /build
+
+cd /go/src/github.com/elastic/beats/heartbeat/
+git checkout v6.6.0
+GOARCH=arm go build
+cp heartbeat /build
+
+exit
+
+#----- Outside container / Verify the outputfile -----#
+file filebeat 
+#ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
+
+file metricbeat 
+#ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
+
+file heartbeat 
+#ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, not stripped
+
+#----- Push executables -----#
+
+git add .
+git push
+
+```
+
+
+
+## REST
 
 # Status 
 Work in progress: This repository is worthless for anybody but me just now.
