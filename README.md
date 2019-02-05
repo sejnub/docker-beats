@@ -41,7 +41,10 @@ https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
     #### clone the git rep that contains config file templates
     cd ~/docker-beats-1-sources; 
     git clone https://github.com/elastic/beats.git
-    
+
+
+
+    ##########################################################################################################
     ### load my own external sources into ~/docker-beats-1-sources (repeat from here on if I edited my source)
 
     #### clone my own rep (Dockerfile etc.)
