@@ -42,14 +42,6 @@ https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
     cd ~/docker-beats-1-sources; 
     git clone https://github.com/elastic/beats.git
     
-    
-    #### wget the arm executables 
-    
-    !!!!!!!!!!!!!!!!!!!!!!!!!
-    Instead copy the binaries that are mentioned earlier in the document!    
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-    
     ### load my own external sources into ~/docker-beats-1-sources (repeat from here on if I edited my source)
 
     #### clone my own rep (Dockerfile etc.)
@@ -69,9 +61,9 @@ https://www.elastic.co/guide/en/beats/filebeat/master/directory-layout.html
     cp -r ~/docker-beats-1-sources/docker-beats/* ~/docker-beats-2-build
 
     ### copy executables into build folder     
-    cp ~/docker-beats-1-sources/metricbeat-linux-arm                  ~/docker-beats-2-build/bin/
-    cp ~/docker-beats-1-sources/heartbeat-linux-arm                   ~/docker-beats-2-build/bin/
-    cp ~/docker-beats-1-sources/filebeat-linux-arm                    ~/docker-beats-2-build/bin/
+    cp ~/beats4pi/metricbeat   ~/docker-beats-2-build/bin/metricbeat-linux-arm
+    cp ~/beats4pi/filebeat     ~/docker-beats-2-build/bin/filebeat-linux-arm
+    cp ~/beats4pi/heartbeat    ~/docker-beats-2-build/bin/heartbeat-linux-arm
 
     ### copy config templates into build folder
     cp ~/docker-beats-1-sources/beats/metricbeat/metricbeat.yml           ~/docker-beats-2-build/config/
