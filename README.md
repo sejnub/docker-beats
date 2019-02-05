@@ -12,7 +12,7 @@ cd docker-beats/bin
 
 #----- Create a Docker for cross-compilation -----#
 #mkdir build && cd $_
-docker run -it --rm -v `pwd`:/build golang:1.10.8 /bin/bash
+docker run -it --rm -v `pwd`:/build golang:latest /bin/bash
 
 
 #----- Inside container -----#
