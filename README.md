@@ -1,3 +1,7 @@
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!! !https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-template.html
+
+
 # docker-beats (WIP)
 
 Work in progress: This repository is worthless for anybody but me just now.
